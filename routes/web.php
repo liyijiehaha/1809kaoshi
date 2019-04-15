@@ -18,3 +18,4 @@ Route::get('/', function () {
 Route::get('/weixin/list','WxController@list');
 Route::post('/weixin/list','WxController@wxEvent');
 Route::get('/weixin/getaccesstoken','WxController@getaccesstoken');
+Route::get('/weixin/create_menu','WxController@create_menu');

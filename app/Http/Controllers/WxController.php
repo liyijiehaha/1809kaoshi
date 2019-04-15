@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Weixinmodel;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Redis;
 class WxController extends Controller
 {
@@ -19,7 +20,6 @@ class WxController extends Controller
         file_put_contents("logs/wx_event.log",$str,FILE_APPEND);
         $data=simplexml_load_string($content);
         $openid=$data->FromUserName;
-        print_r($openid);
         $wx_id=$data->ToUserName;
         $event=$data->Event;
         if($event=='subscribe'){
@@ -66,6 +66,36 @@ class WxController extends Controller
         $data=file_get_contents($url);
         $u=json_decode($data,true);
         return $u;
+    }
+    //创建微信二级菜单
+    public function create_menu(){
+        $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->getaccesstoken();
+        $arr=[
+            'button'=>[
+                [
+                    'type'=>'click',
+                    'name'=>'123',
+                    'key'=> 'V1001_TODAY_TWLY',
+                ],
+                [
+                    'type'=>'click',
+                    'name'=>'456',
+                    'key'=> 'V1001_TODAY_JZSC',
+                ]
+            ]
+        ];
+        $str=json_encode($arr,JSON_UNESCAPED_UNICODE);
+        $client=new Client();
+        $respons=$client->request('POST',$url,[
+            'body'=>$str
+        ]);
+        $ass=$respons->getBody();
+        $ar=json_decode($ass,true);
+        if($ar['errcode']>0){
+            echo "创建菜单失败";
+        }else{
+            echo "创建菜单成功";
+        }
     }
 
 }
