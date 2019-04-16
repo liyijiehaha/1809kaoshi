@@ -119,12 +119,13 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="523">
-              <caret line="80" column="19" lean-forward="true" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+            <state relative-caret-position="453">
+              <caret line="155" column="5" lean-forward="true" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
               <folding>
                 <element signature="e#39#59#0#PHP" expanded="true" />
                 <element signature="e#828#4771#0#PHP" />
                 <element signature="e#2116#2805#0#PHP" />
+                <element signature="e#2730#3559#0#PHP" />
                 <element signature="e#3027#4771#0#PHP" />
                 <element signature="e#4803#5360#0#PHP" />
                 <element signature="e#5378#5646#0#PHP" />
@@ -235,7 +236,7 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="357" />
     <option name="y" value="77" />
     <option name="width" value="1244" />
@@ -333,20 +334,21 @@
       <workItem from="1555307291157" duration="8831000" />
       <workItem from="1555374507239" duration="13215000" />
       <workItem from="1555401542135" duration="4860000" />
-      <workItem from="1555412707007" duration="2447000" />
+      <workItem from="1555412707007" duration="3929000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29440000" />
+    <option name="totallyTimeSpent" value="30922000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12064343" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12064343" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="File Transfer" weight="0.32960895" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -363,7 +365,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="Remote Host" order="4" visible="true" weight="0.07707775" />
+      <window_info active="true" anchor="right" id="Remote Host" order="4" visible="true" weight="0.17426273" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,12 +416,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WxController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="523">
-          <caret line="80" column="19" lean-forward="true" selection-start-line="80" selection-start-column="19" selection-end-line="80" selection-end-column="19" />
+        <state relative-caret-position="453">
+          <caret line="155" column="5" lean-forward="true" selection-start-line="155" selection-start-column="5" selection-end-line="155" selection-end-column="5" />
           <folding>
             <element signature="e#39#59#0#PHP" expanded="true" />
             <element signature="e#828#4771#0#PHP" />
             <element signature="e#2116#2805#0#PHP" />
+            <element signature="e#2730#3559#0#PHP" />
             <element signature="e#3027#4771#0#PHP" />
             <element signature="e#4803#5360#0#PHP" />
             <element signature="e#5378#5646#0#PHP" />

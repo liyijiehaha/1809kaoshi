@@ -107,7 +107,17 @@ class WxController extends Controller
                                     <CreateTime>'.time().'</CreateTime>
                                     <MsgType><![CDATA[text]]></MsgType>
                                     <Content><![CDATA['.$str.']]></Content></xml>";
-
+                        $info=[
+                            'text'=>$text,
+                            'openid'=>$openid,
+                            'create_time'=>$create_time
+                        ];
+                        $res=DB::table('wx_material')->insert($info);
+                        if($res=='true'){
+                            echo '成功';
+                        }else{
+                            echo  '失败';
+                        }
                     }else{
                         $response_xml="<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
                                     <FromUserName><![CDATA['.$app.']]></FromUserName>
@@ -117,17 +127,7 @@ class WxController extends Controller
                     }
                     echo $response_xml;
                 };
-            $info=[
-                'text'=>$text,
-                'openid'=>$openid,
-                'create_time'=>$create_time
-            ];
-            $res=DB::table('wx_material')->insert($info);
-            if($res=='true'){
-                echo '成功';
-            }else{
-                echo  '失败';
-            }
+
 
         }
     }
