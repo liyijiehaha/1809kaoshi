@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 class WxController extends Controller
 {
     //第一次调用接口
@@ -24,6 +25,8 @@ class WxController extends Controller
         $app=$data->ToUserName;//公众号id
         $event=$data->Event;
         $type=$data->MsgType;//消息类型
+        $create_time=$data->CreateTime;
+        $text=$data->Content;
         $client=new Client();
         if($event=='subscribe'){
             //根据openid判断用户是否已存在
@@ -50,18 +53,43 @@ class WxController extends Controller
             $url='https://api.weixin.qq.com/cgi-bin/media/get?access_token='.$this->getaccesstoken().'&media_id='.$media_id;
             $arm=file_get_contents($url);
             $file_name=time().mt_rand(1111,9999).'.amr';//文件名
-            file_put_contents('wx/voice/'.$file_name,$arm);
+            $arr=file_put_contents('wx/voice/'.$file_name,$arm);
+            $voice='wx/voice/'.$file_name;
+            $info=[
+                'voice'=>$voice,
+                'openid'=>$openid,
+                'create_time'=>$create_time
+            ];
+            $res=DB::table('wx_material')->insert($info);
+            if($res=='true'){
+                echo '成功';
+            }else{
+                echo  '失败';
+            }
+
         }elseif($type=='image'){
             $media_id=$data->MediaId;
             $url='https://api.weixin.qq.com/cgi-bin/media/get?access_token='.$this->getaccesstoken().'&media_id='.$media_id;
-            $response = $client->get(new Url($url));
+            $response = $client->get($url);
             //获取响应头信息
             $headers= $response->getHeaders();
-            $file_name= $headers['Content-disposition'][0];//获取文件名
-            $file_info=rtrim(substr($file_name,-20),'');
-            $file_name=substr(md5(time().mt_rand(1111,9999)),10,8).'-'.$file_info;
-            $arr=Storage::put('wx/img/'.$file_name,$response->getBody());
-            var_dump($arr);
+            $file_info= $headers['Content-disposition'][0];//获取文件名
+            $file_name=rtrim(substr($file_info,-20),'"');
+            $new_file_name=substr(md5(time().mt_rand(1111,9999)),10,8).'_'.$file_name;
+            $arr=Storage::put('wx/img'.$new_file_name,$response->getBody());
+            $img='public/wx/img'.$new_file_name;
+            $info=[
+                'img'=>$img,
+                'openid'=>$openid,
+                'create_time'=>$create_time
+            ];
+            $res=DB::table('wx_material')->insert($info);
+            if($res=='true'){
+                echo '成功';
+            }else{
+                echo  '失败';
+            }
+
         }elseif($type=='text'){
             //自动回复天气
                 if(strpos($data->Content,'+天气')){
@@ -74,21 +102,32 @@ class WxController extends Controller
                         $wind_sc=$arr['HeWeather6'][0]['now']['wind_sc'];//风力
                         $hum=$arr['HeWeather6'][0]['now']['hum'];//温度
                         $str="城市：".$city."\n"."温度：".$fl."\n"."风向：".$wind_dir."\n"."风力：".$wind_sc."\n"."温度：".$hum."\n";
-                        $response_xml='<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
+                        $response_xml="<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
                                     <FromUserName><![CDATA['.$app.']]></FromUserName>
                                     <CreateTime>'.time().'</CreateTime>
                                     <MsgType><![CDATA[text]]></MsgType>
-                                    <Content><![CDATA['.$str.']]></Content></xml>';
+                                    <Content><![CDATA['.$str.']]></Content></xml>";
 
                     }else{
-                        $response_xml='<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
+                        $response_xml="<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
                                     <FromUserName><![CDATA['.$app.']]></FromUserName>
                                     <CreateTime>'.time().'</CreateTime>
                                     <MsgType><![CDATA[text]]></MsgType>
-                                    <Content><![CDATA[城市不正确]]></Content></xml>';
+                                    <Content><![CDATA[城市不正确]]></Content></xml>";
                     }
                     echo $response_xml;
                 };
+            $info=[
+                'text'=>$text,
+                'openid'=>$openid,
+                'create_time'=>$create_time
+            ];
+            $res=DB::table('wx_material')->insert($info);
+            if($res=='true'){
+                echo '成功';
+            }else{
+                echo  '失败';
+            }
 
         }
     }
