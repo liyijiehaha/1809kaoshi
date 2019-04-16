@@ -60,7 +60,7 @@ class WxController extends Controller
                 'openid'=>$openid,
                 'create_time'=>$create_time
             ];
-            $res=DB::table('wx_material')->insert($info);
+            $res=DB::table('wx_material')->insertGetId($info);
             if($res=='true'){
                 echo '成功';
             }else{
@@ -83,7 +83,7 @@ class WxController extends Controller
                 'openid'=>$openid,
                 'create_time'=>$create_time
             ];
-            $res=DB::table('wx_material')->insert($info);
+            $res=DB::table('wx_material')->insertGetId($info);
             if($res=='true'){
                 echo '成功';
             }else{
