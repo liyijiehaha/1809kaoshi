@@ -47,16 +47,14 @@ class WxController extends Controller
             }
         }elseif($type=='voice'){
             $media_id=$data->MediaId;
-            $url="https://api.weixin.qq.com/cgi-bin/media/get?access_token=".$this->getaccesstoken()."&media_id=".$media_id;
+            $url='https://api.weixin.qq.com/cgi-bin/media/get?access_token='.$this->getaccesstoken().'&media_id='.$media_id;
             $arm=file_get_contents($url);
             $file_name=time().mt_rand(1111,9999).'.amr';//文件名
             file_put_contents('wx/voice/'.$file_name,$arm);
         }elseif($type=='image'){
-            $time=$data->CreateTime;
-            $font=$data->Content;
             $media_id=$data->MediaId;
-            $url="https://api.weixin.qq.com/cgi-bin/media/get?access_token=".$this->getaccesstoken()."&media_id=".$media_id;
-            $response = $client->get($url);
+            $url='https://api.weixin.qq.com/cgi-bin/media/get?access_token='.$this->getaccesstoken().'&media_id='.$media_id;
+            $response = $client->get(new Url($url));
             //获取响应头信息
             $headers= $response->getHeaders();
             $file_name= $headers['Content-disposition'][0];//获取文件名
@@ -68,7 +66,7 @@ class WxController extends Controller
             //自动回复天气
                 if(strpos($data->Content,'+天气')){
                     $city=explode('+',$data->Content)[0];
-                    $url="https://free-api.heweather.net/s6/weather/now?key=HE1904161044241545&location=".$city;
+                    $url='https://free-api.heweather.net/s6/weather/now?key=HE1904161044241545&location='.$city;
                     $arr=json_decode(file_get_contents($url),true);
                     if($arr['HeWeather6'][0]['status']=='ok') {
                         $fl=$arr['HeWeather6'][0]['now']['tmp'];//摄氏度
@@ -112,14 +110,14 @@ class WxController extends Controller
     }
     //获取微信用户
     public function getUserInfo($openid){
-        $url="https://api.weixin.qq.com/cgi-bin/user/info?access_token=".$this->getaccesstoken()."&openid=".$openid."&lang=zh_CN";
+        $url='https://api.weixin.qq.com/cgi-bin/user/info?access_token='.$this->getaccesstoken().'&openid='.$openid.'&lang=zh_CN';
         $data=file_get_contents($url);
         $u=json_decode($data,true);
         return $u;
     }
     //创建微二级菜单
     public function create_menu(){
-        $url="https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$this->getaccesstoken();
+        $url='https://api.weixin.qq.com/cgi-bin/menu/create?access_token='.$this->getaccesstoken();
         $arr=[
             'button'=>[
                 [
