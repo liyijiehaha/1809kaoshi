@@ -93,11 +93,11 @@ class WxController extends Controller
                         $wind_sc=$arr['HeWeather6'][0]['now']['wind_sc'];//风力
                         $hum=$arr['HeWeather6'][0]['now']['hum'];//温度
                         $str="城市：".$city."\n"."温度：".$fl."\n"."风向：".$wind_dir."\n"."风力：".$wind_sc."\n"."温度：".$hum."\n";
-                        $response_xml="<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
+                        $response_xml='<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
                                     <FromUserName><![CDATA['.$app.']]></FromUserName>
                                     <CreateTime>'.time().'</CreateTime>
                                     <MsgType><![CDATA[text]]></MsgType>
-                                    <Content><![CDATA['.$str.']]></Content></xml>";
+                                    <Content><![CDATA['.$str.']]></Content></xml>';
                         $info=[
                             'text'=>$str,
                             'openid'=>$openid,
@@ -106,11 +106,11 @@ class WxController extends Controller
                         $res=DB::table('wx_material')->insert($info);
 
                     }else{
-                        $response_xml="<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
+                        $response_xml='<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
                                     <FromUserName><![CDATA['.$app.']]></FromUserName>
                                     <CreateTime>'.time().'</CreateTime>
                                     <MsgType><![CDATA[text]]></MsgType>
-                                    <Content><![CDATA[城市不正确]]></Content></xml>";
+                                    <Content><![CDATA[城市不正确]]></Content></xml>';
                     }
                     echo $response_xml;
                 };
