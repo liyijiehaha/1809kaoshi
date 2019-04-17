@@ -184,5 +184,35 @@ class WxController extends Controller
             echo "创建菜单成功";
         }
     }
-
+    /*根据openid消息群发*/
+    public function sendMsg($openid_arr,$content){
+        $msg=[
+            'touser'=>$openid_arr,
+            'msgtype'=>"text",
+            "text"=>[
+                "content"=> $content
+            ]
+        ];
+        $data=json_encode($msg,JSON_UNESCAPED_UNICODE);
+        $url='https://api.weixin.qq.com/cgi-bin/message/mass/send?access_token='.$this->getaccesstoken();
+        $client=new Client();
+        $response=$client->request('post',$url,[
+            'body'=>$data
+        ]);
+        return  $response->getBody();
+    }
+    public function send(){
+        $where=[
+            'status'=>1
+        ];
+        $userlist = DB::table('wx_user')->where($where)->get()->toArray();
+        $openid_arr=array_column($userlist,'openid');
+        $msg="李依杰可耐";
+        $res =$this->sendmsg($openid_arr,$msg);
+        if($res){
+            echo '发送成功';
+        }else{
+            echo '发送失败';
+        }
+    }
 }
