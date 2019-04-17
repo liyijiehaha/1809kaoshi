@@ -61,11 +61,7 @@ class WxController extends Controller
                 'create_time'=>$create_time
             ];
             $res=DB::table('wx_material')->insertGetId($info);
-            if($res=='true'){
-                echo '成功';
-            }else{
-                echo  '失败';
-            }
+
 
         }elseif($type=='image'){
             $media_id=$data->MediaId;
@@ -84,11 +80,6 @@ class WxController extends Controller
                 'create_time'=>$create_time
             ];
             $res=DB::table('wx_material')->insertGetId($info);
-            if($res=='true'){
-                echo '成功';
-            }else{
-                echo  '失败';
-            }
 
         }elseif($type=='text'){
             //自动回复天气
@@ -108,16 +99,12 @@ class WxController extends Controller
                                     <MsgType><![CDATA[text]]></MsgType>
                                     <Content><![CDATA['.$str.']]></Content></xml>";
                         $info=[
-                            'text'=>$text,
+                            'text'=>$str,
                             'openid'=>$openid,
                             'create_time'=>$create_time
                         ];
                         $res=DB::table('wx_material')->insert($info);
-                        if($res=='true'){
-                            echo '成功';
-                        }else{
-                            echo  '失败';
-                        }
+
                     }else{
                         $response_xml="<xml><ToUserName><![CDATA['.$openid.']]></ToUserName>
                                     <FromUserName><![CDATA['.$app.']]></FromUserName>
