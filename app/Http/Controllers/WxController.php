@@ -202,4 +202,7 @@ class WxController extends Controller
             echo '发送失败';
         }
     }
+
+
+
 }
