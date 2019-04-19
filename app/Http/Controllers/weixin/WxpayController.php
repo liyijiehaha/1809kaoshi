@@ -53,7 +53,6 @@ class WxpayController extends Controller
            'code_url'=>$data->code_url
        ];
        return view('weixin.test',$data);
-       var_dump($data);
     }
     protected function ToXml()
     {

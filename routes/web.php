@@ -29,4 +29,4 @@ Route::get('/weixin/create_menu','WxController@create_menu');
 Route::get('weixin/send','WxController@send');
 /*微信扫码支付*/
 Route::get('weixin/pay/test','weixin\WxpayController@test');
-Route::post('/weixin/pay/notify','weixin\WxPayController@notify');       //微信支付回调地址
+Route::post('/weixin/pay/notify','weixin\WxpayController@notify');       //微信支付回调地址
