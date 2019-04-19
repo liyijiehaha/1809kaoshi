@@ -20,6 +20,6 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
        'weixin/list'
-       'weixin/pay/test'
+       'weixin/pay/notify'
     ];
 }
