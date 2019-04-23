@@ -81,7 +81,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    1809考试
+                    laravel是傻逼
                 </div>
 
                 <div class="links">
