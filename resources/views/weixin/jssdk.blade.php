@@ -11,6 +11,11 @@
 </head>
 <body>
 <button id="btn1">选择照片</button>
+<img src="" alt="" id="imgs0" width="300">
+<hr>
+<img src="" alt="" id="imgs1"  width="300">
+<hr>
+<img src="" alt="" id="imgs2"  width="300">
 </body>
 </html>
 <script>
@@ -47,6 +52,14 @@
                             }
                         });
                     });
+                    $.ajax({
+                        url : '/wx/jssdk/getImg?img='+img,     //将上传的照片id发送给后端
+                        type: 'get',
+                        success:function(d){
+                            console.log(d);
+                        }
+                    });
+                    console.log(img);
                 }
             });
         });
