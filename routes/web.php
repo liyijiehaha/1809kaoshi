@@ -40,6 +40,25 @@ Route::get('/weixin/jssdk/getImg', 'JssDkController@getImg');      //获取JSSDK
 Route::get('/weixin/list','WeiXinController@list');
 Route::post('/weixin/list','WeiXinController@wxevent');
 Route::get('/weixin/detail','WeiXinController@detail');
+Route::get('/weixin/getJsConfig', 'WeiXinController@getJsConfig');      //jssdk测试
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //计划任务
 Route::get('/weixin/index','Crontab\CrontabController@del_order');//删除过期订单
 //网页授权

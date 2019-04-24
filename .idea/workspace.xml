@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cd7d6b17-98d6-43fd-84be-066b84f6a0ce" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/js/jquery-1.12.4.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
@@ -311,8 +312,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="41" column="52" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="52" />
+            <state relative-caret-position="378">
+              <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/weixin/detail.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="189">
+              <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -320,8 +330,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WeiXinController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+            <state relative-caret-position="350">
+              <caret line="154" column="34" selection-start-line="154" selection-start-column="34" selection-end-line="154" selection-end-column="34" />
               <folding>
                 <element signature="e#39#61#0#PHP" expanded="true" />
                 <element signature="e#285#345#0#PHP" />
@@ -329,6 +339,20 @@
                 <element signature="e#2175#3325#0#PHP" />
                 <element signature="e#2210#3314#0#PHP" />
                 <element signature="e#3336#3634#0#PHP" />
+                <element signature="e#3639#5048#0#PHP" />
+                <element signature="e#5053#6286#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JssDkController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="36" column="45" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="36" selection-end-column="45" />
+              <folding>
+                <element signature="e#39#66#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -371,9 +395,9 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/JssDkController.php" />
         <option value="$PROJECT_DIR$/resources/views/weixin/jssdk.blade.php" />
         <option value="$PROJECT_DIR$/app/Wxgoodsmodel.php" />
-        <option value="$PROJECT_DIR$/resources/views/weixin/detail.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Crontab/CrontabController.php" />
         <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/resources/views/weixin/detail.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/WeiXinController.php" />
       </list>
@@ -465,11 +489,11 @@
       <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="553" />
-    <option name="y" value="30" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="322" />
+    <option name="y" value="63" />
     <option name="width" value="1460" />
-    <option name="height" value="984" />
+    <option name="height" value="977" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -519,16 +543,17 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/js" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="Z:\1809\app" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="Z:\1809\public\js" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="Z:\1809\resources\js" />
+      <recent name="Z:\1809\app" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -568,18 +593,18 @@
       <workItem from="1555770750858" duration="20000" />
       <workItem from="1555980470896" duration="857000" />
       <workItem from="1556016515575" duration="23410000" />
-      <workItem from="1556100141599" duration="9253000" />
+      <workItem from="1556100141599" duration="10399000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94416000" />
+    <option name="totallyTimeSpent" value="95562000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
+    <frame x="258" y="51" width="1168" height="781" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.027027028" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22972973" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -635,11 +660,6 @@
           <url>file://D:/www/八月/node-qrcode-1.3.3/lib/core/qrcode.js</url>
           <line>11</line>
           <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/weixin/detail.blade.php</url>
-          <line>10</line>
-          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -743,17 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JssDkController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="44" lean-forward="true" selection-start-line="44" selection-end-line="44" />
-          <folding>
-            <element signature="e#39#66#0#PHP" expanded="true" />
-            <element signature="e#143#1473#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/logs/wx_event.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1008" />
@@ -797,13 +806,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/weixin/detail.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="11" selection-start-line="10" selection-start-column="11" selection-end-line="10" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Crontab/CrontabController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="364">
@@ -818,17 +820,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/jquery-1.12.4.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/weixin/detail.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="41" column="52" selection-start-line="41" selection-start-column="46" selection-end-line="41" selection-end-column="52" />
+        <state relative-caret-position="378">
+          <caret line="42" column="31" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/JssDkController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="36" column="45" lean-forward="true" selection-start-line="16" selection-start-column="10" selection-end-line="36" selection-end-column="45" />
+          <folding>
+            <element signature="e#39#66#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WeiXinController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="80" column="21" selection-start-line="80" selection-start-column="21" selection-end-line="80" selection-end-column="21" />
+        <state relative-caret-position="350">
+          <caret line="154" column="34" selection-start-line="154" selection-start-column="34" selection-end-line="154" selection-end-column="34" />
           <folding>
             <element signature="e#39#61#0#PHP" expanded="true" />
             <element signature="e#285#345#0#PHP" />
@@ -836,6 +858,8 @@
             <element signature="e#2175#3325#0#PHP" />
             <element signature="e#2210#3314#0#PHP" />
             <element signature="e#3336#3634#0#PHP" />
+            <element signature="e#3639#5048#0#PHP" />
+            <element signature="e#5053#6286#0#PHP" />
           </folding>
         </state>
       </provider>

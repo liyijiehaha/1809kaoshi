@@ -134,4 +134,24 @@ class WeiXinController extends Controller
             echo    '呦吼！欢迎小可爱';
         }
     }
+    public function getJsConfig()
+    {
+        $nonce=Str::random(10);
+        $ticket=getticket();
+        $time=time();
+        $current_url=$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $string1 = "jsapi_ticket=$ticket&noncestr=$nonce&timestamp=$time&url=$current_url";
+        $signature=sha1($string1);
+        $wx_config=[
+            // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+            'appId'=>env('WX_APPID'), // 必填，公众号的唯一标识
+            'timestamp'=>$time, // 必填，生成签名的时间戳
+            'nonceStr'=>$nonce, // 必填，生成签名的随机串
+            'signature'=>$signature,// 必填，签名
+        ];
+        $data=[
+            'wx_config'=>$wx_config
+        ];
+        return view('weixin.detail',$data);
+    }
 }
