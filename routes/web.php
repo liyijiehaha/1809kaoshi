@@ -33,8 +33,8 @@ Route::get('weixin/send','WxController@send');
 Route::get('weixin/pay/test','weixin\WxpayController@test');
 Route::post('/weixin/pay/notify','weixin\WxpayController@notify');       //微信支付回调地址
 
-Route::get('/weixin/jssdk/test','JssDkController@test');
-Route::get('/weixin/jssdk/getImg', 'JssDkController@getImg');      //获取JSSDK上传的照片
+//Route::get('/weixin/jssdk/test','JssDkController@test');
+//Route::get('/weixin/jssdk/getImg', 'JssDkController@getImg');      //获取JSSDK上传的照片
 
 //最新商品
 Route::get('/weixin/list','WeiXinController@list');
