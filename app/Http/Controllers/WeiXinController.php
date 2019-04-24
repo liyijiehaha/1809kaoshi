@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Weixinmodel;
 use Illuminate\Support\Facades\DB;
 use  Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 class WeiXinController extends Controller
 {
     //第一次调用接口
@@ -81,10 +82,6 @@ class WeiXinController extends Controller
         {
             $goods_id=$request->input('goods_id');
             $res=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->first();
-            if($res == NULL){
-                header('Refresh:2;url=/');
-                die('商品不存在。自动跳转至网站首页');
-            }
             $cache_view=Redis::incr($goods_id);//浏览自增量
 //        /*浏览量排序*/
 //                    $redis_ss_view='redis_goods_view';//浏览量排行
