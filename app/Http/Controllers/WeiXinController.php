@@ -78,7 +78,7 @@ class WeiXinController extends Controller
     }
     public function detail(Request $request)
     {
-        $goods_id=36;
+        $goods_id=$_GET('goods_id');
         $res=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->first();
         $cache_view=Redis::incr($goods_id);//浏览自增量
 //        /*浏览量排序*/
@@ -108,5 +108,8 @@ class WeiXinController extends Controller
                 'cache_view'=>$cache_view
             ];
         return view('weixin/detail',$data,compact('res2'));
+    }
+    public function wxweb(){
+
     }
 }
