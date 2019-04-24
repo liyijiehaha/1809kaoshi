@@ -60,7 +60,7 @@ class WeiXinController extends Controller
                               <Title><![CDATA['.$v->goods_name.']]></Title>
                               <Description><![CDATA['.$v->goods_desc.']]></Description>
                               <PicUrl><![CDATA['.'http://1809liyijie.comcto.com/goodsImg/20190220\3a7b8dea4c6c14b2aa0990a2a2f0388e.jpg'.']]></PicUrl>
-                              <Url><![CDATA['.'http://1809liyijie.comcto.com/weixin/test?goods_id='.$v->goods_id.']]></Url>
+                              <Url><![CDATA['.'http://1809liyijie.comcto.com/weixin/detail?goods_id='.$v->goods_id.']]></Url>
                             </item>
                           </Articles>
                         </xml>';
@@ -74,5 +74,10 @@ class WeiXinController extends Controller
         $data=file_get_contents($url);
         $u=json_decode($data,true);
         return $u;
+    }
+    public function detail(Request $request){
+        $goods_id=$request->input();
+        $v=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->find();
+        dd($v);
     }
 }
