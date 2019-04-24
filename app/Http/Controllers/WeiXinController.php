@@ -128,7 +128,7 @@ class WeiXinController extends Controller
         $openid=$arr['openid'];
         $sex=$arr['sex'];
         $headimgurl=$arr['headimgurl'];
-        if($arr){
+        if(!$arr){
             echo    '呦吼！欢迎小可爱回来'.$nikename;
         }else{
             $info=[
