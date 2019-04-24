@@ -5,7 +5,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Weixinmodel;
 use Illuminate\Support\Facades\DB;
-use App\Wxgoodsmodel;
+use  Illuminate\Support\Facades\Auth;
 class WeiXinController extends Controller
 {
     //第一次调用接口
@@ -60,7 +60,7 @@ class WeiXinController extends Controller
                               <Title><![CDATA['.$v->goods_name.']]></Title>
                               <Description><![CDATA['.$v->goods_desc.']]></Description>
                               <PicUrl><![CDATA['.'http://1809liyijie.comcto.com/uploads/goodsImg/20190220\3a7b8dea4c6c14b2aa0990a2a2f0388e.jpg'.']]></PicUrl>
-                              <Url><![CDATA['.'http://1809liyijie.comcto.com/weixin/detail'.']]></Url>
+                              <Url><![CDATA['.'http://1809liyijie.comcto.com/weixin/detail/?goods_id'.$v->goods_id.']]></Url>
                             </item>
                           </Articles>
                         </xml>';
@@ -75,9 +75,43 @@ class WeiXinController extends Controller
         $u=json_decode($data,true);
         return $u;
     }
-    public function detail(Request $request){
-        $goods_id=36;
-        $v=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->first();
-        return view('weixin/detail',$v);
+
+
+        public function detail($goods_id =0)
+        {
+            $res=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->first();
+            if($res == NULL){
+                header('Refresh:2;url=/');
+                die('商品不存在。自动跳转至网站首页');
+            }
+            $cache_view=Redis::incr($goods_id);//浏览自增量
+//        /*浏览量排序*/
+//                    $redis_ss_view='redis_goods_view';//浏览量排行
+//                    Redis::zAdd($redis_ss_view,$cache_view,$goods_id);//有序集合按浏览量排序
+//                    $goods_id=Redis::Zrevrange ($redis_ss_view,0,10000,true);//倒序排行
+//                    $res1=[];
+//                    foreach ($goods_id as $k=>$v) {
+//                        $where=[
+//                            'goods_id'=>$k
+//                        ];
+//                        $res1[]=GoodsModel::where($where)->first();
+//                    }
+            /*浏览历史记录*/
+            $redis_ss_history='redis_goods_history:'.Auth::id();//浏览量排行
+            Redis::zAdd($redis_ss_history,time(),$goods_id);//有序集合按浏览量排序
+            $goods=Redis::zRevRange($redis_ss_history,0,10000000000000,true);//倒序排行
+            $res2=[];
+            foreach($goods as $k=>$v) {
+                $where=[
+                    'goods_id'=>$k
+                ];
+                $res2[]=DB::table('shop_goods')->where($where)->first();
+            }
+            $data=[
+                'res'=>$res,
+                'cache_view'=>$cache_view
+            ];
+
+        return view('weixin/detail',$data);
     }
 }

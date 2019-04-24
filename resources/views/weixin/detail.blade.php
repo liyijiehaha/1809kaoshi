@@ -1,18 +1,19 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-@foreach($v as $k=>$a)
-        {{$a['goods_id']}}<br>
-        {{$a['goods_name']}}<br>
-        {{$a['goods_desc']}}<br>
-        {{$a['goods_img']}}<br>
+
+
+
+商品id:<font style="color:mediumvioletred">{{$res['goods_id']}}</font><br>
+商品名称:<font style="color:mediumvioletred">{{$res['goods_name']}}</font><br>
+商品描述:<font style="color:mediumvioletred">{{$res['goods_desc']}}</font><br>
+浏览次数：<font style="color:mediumvioletred">{{$cache_view}}</font>次<hr>
+{{--<h1>排行</h1>--}}
+{{--@foreach($res1 as $key=>$val)--}}
+{{--    商品id:{{$val->goods_id}}<br>--}}
+{{--    商品名称:{{$val->goods_name}}<br>--}}
+{{--    商品描述:{{$val->goods_desc}}<hr>--}}
+{{--@endforeach--}}
+<h1>记录</h1>
+@foreach($res2 as $key=>$val)
+    商品id:{{$val->goods_id}}<br>
+    商品名称:{{$val->goods_name}}<br>
+    商品描述:{{$val->goods_desc}}<hr>
 @endforeach
-</body>
-</html>
