@@ -79,7 +79,7 @@ class WeiXinController extends Controller
 
         public function detail(Request $request)
         {
-            $goods_id=$request->input();
+            $goods_id=$request->input('goods_id');
             $res=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->first();
             if($res == NULL){
                 header('Refresh:2;url=/');
