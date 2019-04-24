@@ -123,7 +123,8 @@ class WeiXinController extends Controller
         $url="https://api.weixin.qq.com/sns/userinfo?access_token=".$access_token."&openid=".$openid."&lang=zh_CN";
         $res = json_decode(file_get_contents($url),true);
         echo'<pre>';print_r($res);echo '</pre>';
-        $nikename=$res->nikename;
+        $nikename=$res['nikename'];
+        var_dump($nikename);die;
         $openid=$res->openid;
         $sex=$res->sex;
         $headimgurl=$res->headimgurl;
