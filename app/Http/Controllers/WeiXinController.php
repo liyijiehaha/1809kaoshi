@@ -78,6 +78,6 @@ class WeiXinController extends Controller
     public function detail(Request $request){
         $goods_id=36;
         $v=DB::table('shop_goods')->where(['goods_id'=>36])->first();
-        dd($v);
+        return view('weixin/detail',$v);
     }
 }
