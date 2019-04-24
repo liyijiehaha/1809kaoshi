@@ -122,12 +122,13 @@ class WeiXinController extends Controller
         //获取用户信息
         $url="https://api.weixin.qq.com/sns/userinfo?access_token=".$access_token."&openid=".$openid."&lang=zh_CN";
         $res = json_decode(file_get_contents($url),true);
-        echo'<pre>';print_r($res);echo '</pre>';die;
+        echo'<pre>';print_r($res);echo '</pre>';
         $nikename=$res->nikename;
         $openid=$res->openid;
         $sex=$res->sex;
         $headimgurl=$res->headimgurl;
         $arr=DB::table('p_sq_user')->where(['openid'=>$openid])->first();
+        var_dump($arr);
         if($arr){
             echo    '呦吼！欢迎小可爱回来'.$nikename;
         }else{
