@@ -60,7 +60,7 @@ class WeiXinController extends Controller
                               <Title><![CDATA['.$v->goods_name.']]></Title>
                               <Description><![CDATA['.$v->goods_desc.']]></Description>
                               <PicUrl><![CDATA['.'http://1809liyijie.comcto.com/uploads/goodsImg/20190220\3a7b8dea4c6c14b2aa0990a2a2f0388e.jpg'.']]></PicUrl>
-                              <Url><![CDATA['.'http://1809liyijie.comcto.com/weixin/detail?goods_id='.$v->goods_id.']]></Url>
+                              <Url><![CDATA['.'http://1809liyijie.comcto.com/weixin/detail'.']]></Url>
                             </item>
                           </Articles>
                         </xml>';
@@ -77,7 +77,7 @@ class WeiXinController extends Controller
     }
     public function detail(Request $request){
         $goods_id=36;
-        $v=DB::table('shop_goods')->where(['goods_id'=>36])->first();
+        $v=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->first();
         return view('weixin/detail',$v);
     }
 }
