@@ -54,4 +54,4 @@ Route::get('/weixin/jssdk/getImg', 'JssDkController@getImg');      //获取JSSDK
 //最新商品
 Route::get('/weixin/list','WeiXinController@list');
 Route::post('/weixin/list','WeiXinController@wxevent');
-Route::get('/weixin/detail/','WeiXinController@detail');
+Route::get('/weixin/detail','WeiXinController@detail');
