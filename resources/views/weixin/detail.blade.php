@@ -41,10 +41,10 @@
     });
     wx.ready(function () {   //需在用户可能点击分享按钮前就先调用
         wx.updateAppMessageShareData({
-            title: '这个是标题', // 分享标题
-            desc: '没有什么描述的', // 分享描述
-            link: 'http://1809abc.comcto.com', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            imgUrl: 'http://1809abc.comcto.com/images/apple.jpg', // 分享图标
+            title: '标题', // 分享标题
+            desc: '描述的', // 分享描述
+            link: 'http://1809liyijie.comcto.com', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+            imgUrl: 'http://1809liyijie.comcto.com/uploads/goodsImg/20190220\3a7b8dea4c6c14b2aa0990a2a2f0388e.jpg', // 分享图标
             success: function () {
                 alert('分享成功');
             }
