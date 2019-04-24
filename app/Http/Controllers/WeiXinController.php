@@ -76,8 +76,8 @@ class WeiXinController extends Controller
         return $u;
     }
     public function detail(Request $request){
-        $goods_id=$request->input();
-        $v=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->find();
+        $goods_id=36;
+        $v=DB::table('shop_goods')->where(['goods_id'=>36])->first();
         dd($v);
     }
 }
