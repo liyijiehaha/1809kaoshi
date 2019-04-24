@@ -124,6 +124,21 @@ class WeiXinController extends Controller
         $res = json_decode(file_get_contents($url),true);
         echo'<pre>';print_r($res);echo '</pre>';
         $arr=DB::table('p_sq_user')->where(['openid'=>$openid])->first();
-        dd($arr);
+        $nikename=$arr['nikename'];
+        $openid=$arr['openid'];
+        $sex=$arr['sex'];
+        $headimgurl=$arr['headimgurl'];
+        if($arr){
+            echo    '呦吼！欢迎小可爱回来'.$nikename;
+        }else{
+            $info=[
+                'nikename'=>$nikename,
+                'openid'=>$openid,
+                'sex'=>$sex,
+                'headimgurl'=>$headimgurl,
+            ];
+            $res=DB::table('p_sq_user')->insert($info);
+            echo    '呦吼！欢迎小可爱'.$nikename;
+        }
     }
 }
