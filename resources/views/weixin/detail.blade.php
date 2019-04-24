@@ -8,9 +8,11 @@
     <title>Document</title>
 </head>
 <body>
-        {{$v['goods_id']}}<br>
-        {{$v['goods_name']}}<br>
-        {{$v['goods_desc']}}<br>
-        {{$v['goods_img']}}<br>
+@foreach($v as $k=>$a)
+        {{$a['goods_id']}}<br>
+        {{$a['goods_name']}}<br>
+        {{$a['goods_desc']}}<br>
+        {{$a['goods_img']}}<br>
+@endforeach
 </body>
 </html>
