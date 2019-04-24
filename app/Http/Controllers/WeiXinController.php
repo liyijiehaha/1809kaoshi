@@ -78,8 +78,7 @@ class WeiXinController extends Controller
     }
     public function detail(Request $request)
     {
-        $goods_id=$_GET('goods_id');
-        dd($goods_id);
+        $goods_id=36;
         $res=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->first();
         $cache_view=Redis::incr($goods_id);//浏览自增量
 //        /*浏览量排序*/
