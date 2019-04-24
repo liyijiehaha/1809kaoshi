@@ -110,21 +110,16 @@ class WeiXinController extends Controller
         return view('weixin/detail',$data,compact('res2'));
     }
     public function getu(){
-        echo'<pre>';print_r($_GET);echo '</pre>';
         $code = $_GET['code'];
-        var_dump($code);
         //获取access_token
         $url = 'https://api.weixin.qq.com/sns/oauth2/access_token?appid='.env('WX_APPID').'&secret='.env('WX_APPSECRET').'&code='.$code.'&grant_type=authorization_code';
         $response = json_decode(file_get_contents($url),true);
-        echo'<pre>';print_r($response);echo '</pre>';
         $access_token=$response['access_token'];
         $openid=$response['openid'];
         //获取用户信息
         $url="https://api.weixin.qq.com/sns/userinfo?access_token=".$access_token."&openid=".$openid."&lang=zh_CN";
         $res = json_decode(file_get_contents($url),true);
-        echo'<pre>';print_r($res);echo '</pre>';
         $arr=DB::table('p_sq_user')->where(['openid'=>$openid])->first();
-        var_dump($arr);
         if($arr){
             echo    '呦吼！欢迎小可爱回来';
         }else{
@@ -132,7 +127,7 @@ class WeiXinController extends Controller
                 'nickname'=>$res['nickname'],
                 'openid'=>$res['openid'],
                 'sex'=>$res['sex'],
-                'headimgurl'=>$res['headimgurl'],
+                'headimgurl'=>$res['headimgurl'],+
                 'headimgurl'=>$res['headimgurl'],
             ];
             $res=DB::table('p_sq_user')->insert($info);
