@@ -113,6 +113,7 @@ class WeiXinController extends Controller
         echo'<pre>';print_r($_GET);echo '</pre>';
         $code=$_GET['code'];
         $url=' https://api.weixin.qq.com/sns/oauth2/access_token?appid='.env('WX_APPID').'&secret='.env('WX_APPSECRET').'&code='.$code.'&grant_type=authorization_code';
+        var_dump($url);die;
         $res=json_decode(file_get_contents($url),true);
         echo'<pre>';print_r($res);echo '</pre>';
     }
