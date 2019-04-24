@@ -76,13 +76,11 @@ class WeiXinController extends Controller
         $u=json_decode($data,true);
         return $u;
     }
-
-
-        public function detail(Request $request)
-        {
-            $goods_id=$request->input('goods_id');
-            $res=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->first();
-            $cache_view=Redis::incr($goods_id);//浏览自增量
+    public function detail(Request $request)
+    {
+        $goods_id=36;
+        $res=DB::table('shop_goods')->where(['goods_id'=>$goods_id])->first();
+        $cache_view=Redis::incr($goods_id);//浏览自增量
 //        /*浏览量排序*/
 //                    $redis_ss_view='redis_goods_view';//浏览量排行
 //                    Redis::zAdd($redis_ss_view,$cache_view,$goods_id);//有序集合按浏览量排序
@@ -109,7 +107,6 @@ class WeiXinController extends Controller
                 'res'=>$res,
                 'cache_view'=>$cache_view
             ];
-
-        return view('weixin/detail',$data);
+        return view('weixin/detail',$data,compact('res2'));
     }
 }
