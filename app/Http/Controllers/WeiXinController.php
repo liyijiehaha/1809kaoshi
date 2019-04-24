@@ -109,7 +109,7 @@ class WeiXinController extends Controller
             ];
         return view('weixin/detail',$data,compact('res2'));
     }
-    public function wxweb(){
-
+    public function getu(){
+        echo'<pre>';print_r($_GET[]);echo '</pre>';
     }
 }

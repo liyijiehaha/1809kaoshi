@@ -35,6 +35,7 @@ Route::post('/weixin/pay/notify','weixin\WxpayController@notify');       //微�
 
 Route::get('/weixin/jssdk/test','JssDkController@test');
 Route::get('/weixin/jssdk/getImg', 'JssDkController@getImg');      //获取JSSDK上传的照片
+
 //最新商品
 Route::get('/weixin/list','WeiXinController@list');
 Route::post('/weixin/list','WeiXinController@wxevent');
@@ -42,4 +43,4 @@ Route::get('/weixin/detail','WeiXinController@detail');
 //计划任务
 Route::get('/weixin/index','Crontab\CrontabController@del_order');//删除过期订单
 //网页授权
-Route::get('/weixin/wxweb','WeiXinController@wxweb');
+Route::get('/wxweb/u', 'WeiXinController@getu');
