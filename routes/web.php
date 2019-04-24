@@ -18,7 +18,9 @@ Route::get('/info', function () {
   phpinfo();
 });
 
-
+//微信接口返回文件
+//Route::get('/weixin/list','WxController@list');
+//Route::post('/weixin/list','WxController@wxEvent');
 /*获取access_token*/
 Route::get('/weixin/getaccesstoken','WxController@getaccesstoken');
 /*菜单*/

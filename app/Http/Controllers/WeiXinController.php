@@ -29,7 +29,7 @@ class WeiXinController extends Controller
             $Weixin_model=new Weixinmodel();
             $local_user=$Weixin_model->where(['openid'=>$openid])->first();
             if($local_user){
-                echo '<xml><ToUserName><![CDATA['.$openid.']]></ToUserName><FromUserName><![CDATA['.$appid.']]></FromUserName><CreateTime>'.time().'</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA['. '欢迎回来 '. $local_user['nickname'] .']]></Content></xml>';
+                echo '<xml><ToUserName><![CDATA['.$openid.']]></ToUserName><FromUserName><![CDATA['.$appid.']]></FromUserName><CreateTime>'.time().'</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA['. '呦吼！欢迎小可爱回来  '. $local_user['nickname'] .']]></Content></xml>';
             }else{
                 //获取用户信息
                 $u=$this ->getUserInfo($openid);
@@ -42,8 +42,10 @@ class WeiXinController extends Controller
                 ];
                 $Weixin_model=new Weixinmodel();
                 $res= $Weixin_model->insert($u_info);
-                echo '<xml><ToUserName><![CDATA['.$openid.']]></ToUserName><FromUserName><![CDATA['.$appid.']]></FromUserName><CreateTime>'.time().'</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA['. '欢迎关注 '. $u['nickname'] .']]></Content></xml>';
+                echo '<xml><ToUserName><![CDATA['.$openid.']]></ToUserName><FromUserName><![CDATA['.$appid.']]></FromUserName><CreateTime>'.time().'</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA['. '欢迎关注小杰娃！笔芯  '. $u['nickname'] .']]></Content></xml>';
             }
+        }elseif($type=='text'){
+
         }
     }
     public function getUserInfo($openid){
