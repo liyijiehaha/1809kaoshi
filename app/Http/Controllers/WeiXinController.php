@@ -119,7 +119,7 @@ class WeiXinController extends Controller
         $access_token=$response['access_token'];
         $openid=$response['openid'];
         //获取用户信息
-        $url='https://api.weixin.qq.com/sns/userinfo?access_token='.$access_token.'&openid='.$openid.'&lang=zh_CN';
+        $url="https://api.weixin.qq.com/sns/userinfo?access_token=".$access_token."&openid=".$openid."&lang=zh_CN";
         $res = json_decode(file_get_contents($url),true);
         echo'<pre>';print_r($res);echo '</pre>';
         $arr=DB::table('p_sq_user')->where(['openid'=>$openid])->first();
