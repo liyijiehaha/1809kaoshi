@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Weixinmodel;
+use Illuminate\Support\Facades\DB;
+use App\Wxgoodsmodel;
 class WeiXinController extends Controller
 {
     //第一次调用接口
@@ -42,9 +44,27 @@ class WeiXinController extends Controller
                 ];
                 $Weixin_model=new Weixinmodel();
                 $res= $Weixin_model->insert($u_info);
-                echo '<xml><ToUserName><![CDATA['.$openid.']]></ToUserName><FromUserName><![CDATA['.$appid.']]></FromUserName><CreateTime>'.time().'</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA['. '欢迎关注小杰娃！笔芯  '. $u['nickname'] .']]></Content></xml>';
+                echo '<xml><ToUserName><![CDATA['.$openid.']]></ToUserName><FromUserName><![CDATA['.$appid.']]></FromUserName><CreateTime>'.time().'</CreateTime><MsgType><![CDATA[text]]></MsgType><Content><![CDATA['. '欢迎关注小杰娃！💗  '. $u['nickname'] .']]></Content></xml>';
             }
         }elseif($type=='text'){
+            if($text=='最新商品'){
+                $v=DB::table('shop_goods')->orderBy('create_time','desc')->first();
+                echo '<xml>
+                          <ToUserName><![CDATA['.$openid.']]></ToUserName>
+                          <FromUserName><![CDATA['.$appid.']]></FromUserName>
+                          <CreateTime>.time().</CreateTime>
+                          <MsgType><![CDATA[news]]></MsgType>
+                          <ArticleCount>1</ArticleCount>
+                          <Articles>
+                            <item>
+                              <Title><![CDATA['.$v->goods_name.']]></Title>
+                              <Description><![CDATA['.$v->goods_desc.']]></Description>
+                              <PicUrl><![CDATA['.'http://1809liyijie.comcto.com/goodsImg/20190220\3a7b8dea4c6c14b2aa0990a2a2f0388e.jpg'.']]></PicUrl>
+                              <Url><![CDATA['.'http://1809liyijie.comcto.com/weixin/test?goods_id='.$v->goods_id.']]></Url>
+                            </item>
+                          </Articles>
+                        </xml>';
+            }
 
         }
     }
