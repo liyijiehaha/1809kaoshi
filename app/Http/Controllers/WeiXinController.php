@@ -129,9 +129,10 @@ class WeiXinController extends Controller
             echo    '呦吼！欢迎小可爱回来';
         }else{
             $info=[
-                'nikename'=>$res['nikename'],
+                'nickname'=>$res['nickname'],
                 'openid'=>$res['openid'],
                 'sex'=>$res['sex'],
+                'headimgurl'=>$res['headimgurl'],
                 'headimgurl'=>$res['headimgurl'],
             ];
             $res=DB::table('p_sq_user')->insert($info);
