@@ -150,7 +150,6 @@ class WeiXinController extends Controller
                 'nickname'=>$res['nickname'],
                 'openid'=>$res['openid'],
                 'sex'=>$res['sex'],
-                'headimgurl'=>$res['headimgurl'],+
                 'headimgurl'=>$res['headimgurl'],
             ];
             $res=DB::table('p_sq_user')->insert($info);
