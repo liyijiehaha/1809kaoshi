@@ -126,9 +126,10 @@ class WeiXinController extends Controller
             'nonceStr'=>$nonce, // 必填，生成签名的随机串
             'signature'=>$signature,// 必填，签名
         ];
-        var_dump($wx_config);
-     return $wx_config;
-
+        $data=[
+            'wx_config'=>$wx_config
+        ];
+     return view('weixin/detail',$data);
     }
     //授权网页
     public function getu(){
