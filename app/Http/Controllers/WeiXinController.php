@@ -115,7 +115,9 @@ class WeiXinController extends Controller
         $ticket=getticket();
         $time=time();
         $current_url=$_SERVER['REQUEST_SCHEME'].'://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        var_dump($current_url);
         $string1 = "jsapi_ticket=$ticket&noncestr=$nonce&timestamp=$time&url=$current_url";
+        var_dump($string1);
         $signature=sha1($string1);
         $wx_config=[
             // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -124,9 +126,11 @@ class WeiXinController extends Controller
             'nonceStr'=>$nonce, // 必填，生成签名的随机串
             'signature'=>$signature,// 必填，签名
         ];
+        var_dump($wx_config);
      return $wx_config;
 
     }
+    //授权网页
     public function getu(){
         $code = $_GET['code'];
         //获取access_token
