@@ -331,7 +331,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WeiXinController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="539">
-              <caret line="155" column="31" lean-forward="true" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+              <caret line="155" column="32" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
               <folding>
                 <element signature="e#39#61#0#PHP" expanded="true" />
                 <element signature="e#285#345#0#PHP" />
@@ -610,12 +610,12 @@
       <workItem from="1555770750858" duration="20000" />
       <workItem from="1555980470896" duration="857000" />
       <workItem from="1556016515575" duration="23410000" />
-      <workItem from="1556100141599" duration="12133000" />
+      <workItem from="1556100141599" duration="12611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97296000" />
+    <option name="totallyTimeSpent" value="97774000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
@@ -868,7 +868,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/WeiXinController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="539">
-          <caret line="155" column="31" lean-forward="true" selection-start-line="155" selection-start-column="31" selection-end-line="155" selection-end-column="31" />
+          <caret line="155" column="32" selection-start-line="155" selection-start-column="32" selection-end-line="155" selection-end-column="32" />
           <folding>
             <element signature="e#39#61#0#PHP" expanded="true" />
             <element signature="e#285#345#0#PHP" />

@@ -153,7 +153,7 @@ class WeiXinController extends Controller
                 'headimgurl'=>$res['headimgurl'],
             ];
             $res=DB::table('p_sq_user')->insert($info);
-            echo    '呦吼！欢迎小可爱';
+            echo    '呦吼！欢迎小可爱来授权';
         }
     }
 }
