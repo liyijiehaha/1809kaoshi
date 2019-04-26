@@ -17,9 +17,6 @@ Route::get('/', function () {
 Route::get('/info', function () {
   phpinfo();
 });
-Route::get('/test/urlencode', function () {
-   echo urlencode($_GET['url']);
-});
 //微信接口返回文件
 Route::get('/weixin/list','WxController@list');
 Route::post('/weixin/list','WxController@wxEvent');
