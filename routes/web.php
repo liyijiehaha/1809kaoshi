@@ -29,18 +29,9 @@ Route::get('/weixin/getaccesstoken','WxController@getaccesstoken');
 Route::get('/weixin/create_menu','WxController@create_menu');
 /*群发*/
 Route::get('weixin/send','WxController@send');
-/*微信扫码支付*/
-Route::get('weixin/pay/test','weixin\WxpayController@test');
-Route::post('/weixin/pay/notify','weixin\WxpayController@notify');       //微信支付回调地址
 
-Route::get('/weixin/jssdk/test','JssDkController@test');
-Route::get('/weixin/jssdk/getImg', 'JssDkController@getImg');      //获取JSSDK上传的照片
 
-////最新商品
-//Route::get('/weixin/list','WeiXinController@list');
-//Route::post('/weixin/list','WeiXinController@wxevent');
-//Route::get('/weixin/detail','WeiXinController@detail');
-//Route::get('/weixin/getJsConfig', 'WeiXinController@getJsConfig');      //jssdk测试
+
 
 
 
