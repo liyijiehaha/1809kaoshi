@@ -125,7 +125,7 @@ class WxController extends Controller
         if($token){
             echo '有';
         }else{
-            $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.env('APPID').'&secret='.env('APPSECRET');
+            $url = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid='.env('WX_APPID').'&secret='.env('WX_APPSECRET');
             $response=file_get_contents($url);
             $arr =json_decode($response,true);
             Redis::set($key,$arr['access_token']);
