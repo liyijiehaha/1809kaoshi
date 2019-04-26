@@ -63,3 +63,10 @@ Route::get('/weixin/getJsConfig', 'WeiXinController@getJsConfig');      //jssdk�
 Route::get('/weixin/index','Crontab\CrontabController@del_order');//删除过期订单
 //网页授权
 Route::get('/wxweb/u', 'WeiXinController@getu');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
