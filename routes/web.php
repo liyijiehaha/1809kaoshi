@@ -21,8 +21,8 @@ Route::get('/test/urlencode', function () {
    echo urlencode($_GET['url']);
 });
 //微信接口返回文件
-//Route::get('/weixin/list','WxController@list');
-//Route::post('/weixin/list','WxController@wxEvent');
+Route::get('/weixin/list','WxController@list');
+Route::post('/weixin/list','WxController@wxEvent');
 /*获取access_token*/
 Route::get('/weixin/getaccesstoken','WxController@getaccesstoken');
 /*菜单*/
@@ -33,14 +33,14 @@ Route::get('weixin/send','WxController@send');
 Route::get('weixin/pay/test','weixin\WxpayController@test');
 Route::post('/weixin/pay/notify','weixin\WxpayController@notify');       //微信支付回调地址
 
-//Route::get('/weixin/jssdk/test','JssDkController@test');
-//Route::get('/weixin/jssdk/getImg', 'JssDkController@getImg');      //获取JSSDK上传的照片
+Route::get('/weixin/jssdk/test','JssDkController@test');
+Route::get('/weixin/jssdk/getImg', 'JssDkController@getImg');      //获取JSSDK上传的照片
 
-//最新商品
-Route::get('/weixin/list','WeiXinController@list');
-Route::post('/weixin/list','WeiXinController@wxevent');
-Route::get('/weixin/detail','WeiXinController@detail');
-Route::get('/weixin/getJsConfig', 'WeiXinController@getJsConfig');      //jssdk测试
+////最新商品
+//Route::get('/weixin/list','WeiXinController@list');
+//Route::post('/weixin/list','WeiXinController@wxevent');
+//Route::get('/weixin/detail','WeiXinController@detail');
+//Route::get('/weixin/getJsConfig', 'WeiXinController@getJsConfig');      //jssdk测试
 
 
 
